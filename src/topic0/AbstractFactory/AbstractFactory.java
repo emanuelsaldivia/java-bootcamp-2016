@@ -1,16 +1,8 @@
 package topic0.AbstractFactory;
 
-public class AbstractFactory {
-	
-	//La verdad que no supe bien como desarrollar este punto.
+public abstract class AbstractFactory {
 		
-		public ConnectionFactory getConnectionFactory(String type) {
-			if ("SQL".equals(type)) {
-				return new MySQLFactory();
-			} else {
-				return new OthersFactory();
-			}
-		}
-		
+		public abstract SQL getSQL();
+		public abstract Others getNoSQL();
 		
 	}

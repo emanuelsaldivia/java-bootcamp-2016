@@ -1,12 +1,14 @@
 package topic0.AbstractFactory;
 
-public class OthersFactory extends ConnectionFactory {
+public abstract class OthersFactory extends AbstractFactory {
 
-	@Override
-	public Db getDb(String type) {
-		if ("Others".equals(type)) {
-			return new OthersConnection();
-		}
+	public Others getSQL(String name) {
+		return null;
 	}
+
+	public Others getNoSQL(String name) {
+		return null;
+	}
+
 
 }

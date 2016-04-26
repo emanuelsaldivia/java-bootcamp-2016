@@ -4,44 +4,44 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class MySQLConnection extends SQL {
+public class OracleConnection extends SQL {
 
-	private String dbDriver="com.mysql.jdbc.Driver";
 	private static String user="root";
 	private static String pass="abc123";
-	private static String dbname = "mysqldb";
-	private Connection conn;
-	private static MySQLConnection instance;
+	private static String dbname = "oracledb";
+	private String dbDriver="com.oracle.jdbc.Driver";
+	private Connection connection;
+	private static OracleConnection instance;
 
-	MySQLConnection(){
+	private OracleConnection(){
 		try {
 			Class.forName(dbDriver);
-			conn = null;
+			connection = null;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	public static MySQLConnection getInstance() {
-		if(instance==null) instance = new MySQLConnection();
+	public static OracleConnection getInstance() {
+		if(instance==null) instance = new OracleConnection();
 		return instance;
 	}
 	
 	public Connection getConnection() {
 		try {
-			if(conn==null || conn.isClosed())
-				conn = DriverManager.getConnection("jdbc:mysql://localhost/" + dbname, user, pass);
+			if(connection==null || connection.isClosed())
+				connection = DriverManager.getConnection("jdbc:oracle://localhost/" + dbname, user, pass);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return conn;
+		return connection;
 	}
 	
 	public void releaseConnection() {
 		try {
-			if(!conn.isClosed()) conn.close();
+			if(!connection.isClosed()) connection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

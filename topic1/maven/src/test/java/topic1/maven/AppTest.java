@@ -14,18 +14,18 @@ public class AppTest extends TestCase{
     
 private static App apptest;
     
-    //@BeforeClass
+    @BeforeClass
     public void setUp() {
     	app= new App(1, 2);
 	}
     
-    //@Test
+    @Test
     public void testBigger() {
     	assertEquals(2, app.bigger());
     	assertNotEquals(1, app.bigger());
 	}
     
-    //@Test
+    @Test
     public void testLower(){
     	assertEquals(1, app.lower());
     	assertNotEquals(2, app.lower());

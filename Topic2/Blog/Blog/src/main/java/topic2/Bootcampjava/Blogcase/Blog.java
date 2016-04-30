@@ -7,7 +7,8 @@ import java.io.*;
 public class Blog {
 
 	private Entry entry;
-	
+	private int listLimit=10;
+	private int firstEntry=0;
 	private List<Entry> entryList;
 	
 	public void newList(){
@@ -27,14 +28,15 @@ public class Blog {
 	}
 	
 	public List<Entry> recentEntries (){
+		
 		List<Entry> recentList;
 		recentList =new LinkedList<Entry>();
-		for (int i=0;i<10;i++){
+		for (int i=0;i<listLimit;i++){
 			entry=entryList.get(entryList.size()-i);
 			recentList.add(entry);
 			entry.getEntryId();
 			System.out.print("Author: "+entry.getAuthor()+"\nTitle: "+entry.getTitle()+"\n\n"+entry.getBody()+"\nRelease Date: "+entry.getDate().toString()+"\n");
-			if (entryList.size()-i<0){
+			if (entryList.size()-i<firstEntry){
 				break;
 			}
 		}

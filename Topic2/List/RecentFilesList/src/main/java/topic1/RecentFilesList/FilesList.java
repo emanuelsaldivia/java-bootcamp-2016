@@ -5,6 +5,8 @@ import java.util.List;
 
 public class FilesList {
 	
+	private int listLimit=15;
+	private int firstElement=0;
 	private List<File> list;
 	
 	public void newList(){
@@ -16,8 +18,8 @@ public class FilesList {
 			if (list.contains(file)){
 				list.remove(file);
 			}
-			if (list.size()==15){ //the list is full with the maximum amount of files
-				list.remove(0); //removes the first introduced file into the list
+			if (list.size()==listLimit){ //the list is full with the maximum amount of files
+				list.remove(firstElement); //removes the first introduced file into the list
 			}
 			list.add(file);
 		}

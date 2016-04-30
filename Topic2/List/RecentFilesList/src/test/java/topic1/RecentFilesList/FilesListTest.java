@@ -16,10 +16,6 @@ public class FilesListTest {
 	public void setUpFile() throws Exception{
 		f = new File();
 		f.setFileName("file1");
-	}
-	
-	@Before
-	public void setUpList() throws Exception{
 		list = new FilesList();
 		list.clearList();
 	}

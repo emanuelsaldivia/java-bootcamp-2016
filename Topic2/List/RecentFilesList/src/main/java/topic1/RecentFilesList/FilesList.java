@@ -5,8 +5,8 @@ import java.util.List;
 
 public class FilesList {
 	
-	private int listLimit=15;
-	private int firstElement=0;
+	private final int listLimit=15;
+	private final int firstElement=0;
 	private List<File> list;
 	
 	public void newList(){
